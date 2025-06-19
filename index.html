@@ -3,184 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emergency Protocols</title>
+  <title>QR Safety Station – Staff Resource Hub</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
     }
     header {
-      background: linear-gradient(to right, #ef4444, #b91c1c);
+      background-color: #3b82f6;
       color: white;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header h1 {
-      margin: 0;
+      padding: 1.5rem;
+      text-align: center;
       font-size: 1.5rem;
-    }
-    header p {
-      margin: 0;
-      font-size: 0.9rem;
-    }
-    .back-button {
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 1rem;
-    }
-    .tab {
-      flex: 1 1 30%;
-      margin: 0.5rem;
-      padding: 1rem;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      text-align: center;
       font-weight: bold;
-      transition: transform 0.2s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    .tab:hover {
-      transform: scale(1.05);
-    }
-    .tab.active {
-      outline: 3px solid #333;
-    }
-    .tab.red { background-color: #dc2626; }
-    .tab.blue { background-color: #2563eb; }
-    .tab.purple { background-color: #9333ea; }
-
-    .protocol {
-      display: none;
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       padding: 1rem;
-      animation: fadeIn 0.5s ease-in;
     }
-    .protocol.active {
-      display: block;
-    }
-    .step {
+    .resource {
       display: flex;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-    }
-    .step-number {
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
-      margin-right: 1rem;
-    }
-    .info-box {
       padding: 1rem;
-      border-radius: 8px;
-      margin: 1rem 0;
+      border-bottom: 1px solid #e5e7eb;
+      cursor: pointer;
     }
-    .info-box.red { background-color: #fee2e2; color: #991b1b; }
-    .info-box.blue { background-color: #dbeafe; color: #1e3a8a; }
-    .info-box.purple { background-color: #ede9fe; color: #4c1d95; }
-    .grid-2x2, .grid-3col {
-      display: grid;
-      gap: 1rem;
-    }
-    .grid-2x2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3col { grid-template-columns: repeat(3, 1fr); }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 2rem 0;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
-      text-align: left;
-    }
-    tfoot {
-      border-top: 1px solid #ccc;
-      background-color: #f0f0f0;
-    }
-    footer {
-      border-top: 1px solid #ccc;
-      padding: 1rem;
-      font-size: 0.8rem;
-      text-align: center;
+    .resource:hover {
       background-color: #f3f4f6;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .resource:last-child {
+      border-bottom: none;
     }
-    @media (max-width: 768px) {
-      .tabs { flex-direction: column; }
-      .tab { flex: 1 1 100%; }
-      .grid-2x2, .grid-3col { grid-template-columns: 1fr; }
+    .resource-icon-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .resource-icon {
+      font-size: 1.25rem;
+    }
+    .resource-title {
+      font-weight: 600;
+    }
+    .resource-desc {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    .arrow {
+      font-size: 1.25rem;
+      color: #9ca3af;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="back-button" onclick="history.back()">⬅ Back</div>
-    <div>
-      <h1>🛑 Emergency Protocols</h1>
-      <p>Critical response procedures for all facility emergencies</p>
-    </div>
+    📲 QR Safety Station – Staff Resource Hub
   </header>
 
-  <div class="tabs">
-    <div class="tab red active" onclick="switchTab('fire')">🔥 Fire Emergency</div>
-    <div class="tab blue" onclick="switchTab('medical')">🚑 Medical Emergency</div>
-    <div class="tab purple" onclick="switchTab('lockdown')">🔒 Facility Lockdown</div>
-  </div>
-
-  <div id="fire" class="protocol active">
-    <h2>🔥 Fire Emergency Protocol</h2>
-    <div class="step"><div class="step-number red">1</div>Activate the nearest fire alarm – Pull station immediately when fire/smoke is observed.</div>
-    <div class="step"><div class="step-number red">2</div>Call emergency services: 911 – Provide location and fire details.</div>
-    <div class="step"><div class="step-number red">3</div>Evacuate using designated routes – Do not use elevators.</div>
-    <div class="step"><div class="step-number red">4</div>Proceed to assembly point – Gather at predesignated safe zone.</div>
-    <div class="step"><div class="step-number red">5</div>Account for all staff and patients – Use checklists or verbal headcount.</div>
-    <div class="info-box red">
-      <strong>Important Reminders:</strong>
-      <ul>
-        <li>Do not re-enter until cleared</li>
-        <li>Assist those with mobility issues</li>
-        <li>Close doors behind you</li>
-        <li>Use fire extinguishers only if trained</li>
-        <li>Stay low in smoke-filled areas</li>
-      </ul>
+  <div class="container">
+    <div class="resource" onclick="location.href='safety-handbook.html';">
+      <div class="resource-icon-title">
+        <span class="resource-icon">📘</span>
+        <div>
+          <div class="resource-title">Safety Handbook</div>
+          <div class="resource-desc">Access our full policies and safety procedures.</div>
+        </div>
+      </div>
+      <span class="arrow">›</span>
     </div>
-    <div class="grid-2x2">
-      <div><strong>P</strong> – Pull the pin</div>
-      <div><strong>A</strong> – Aim at base</div>
-      <div><strong>S</strong> – Squeeze handle</div>
-      <div><strong>S</strong> – Sweep side to side</div>
+
+    <div class="resource" onclick="location.href='emergency-protocols.html';">
+      <div class="resource-icon-title">
+        <span class="resource-icon">🛑</span>
+        <div>
+          <div class="resource-title">Emergency Protocols</div>
+          <div class="resource-desc">Know what to do in fires, lockdowns, and medical emergencies.</div>
+        </div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <div class="resource" onclick="location.href='monthly-topic.html';">
+      <div class="resource-icon-title">
+        <span class="resource-icon">🗓️</span>
+        <div>
+          <div class="resource-title">Monthly Safety Topic</div>
+          <div class="resource-desc">Rotating focus to keep safety top of mind.</div>
+        </div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <div class="resource" onclick="location.href='submit-concern.html';">
+      <div class="resource-icon-title">
+        <span class="resource-icon">✍️</span>
+        <div>
+          <div class="resource-title">Submit a Safety Concern</div>
+          <div class="resource-desc">Report issues securely and anonymously.</div>
+        </div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <div class="resource" onclick="location.href='training-video.html';">
+      <div class="resource-icon-title">
+        <span class="resource-icon">🎥</span>
+        <div>
+          <div class="resource-title">Quick Training Video</div>
+          <div class="resource-desc">Watch short staff safety tutorials.</div>
+        </div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <div class="resource" onclick="location.href='cheat-sheet.html';">
+      <div class="resource-icon-title">
+        <span class="resource-icon">⚠️</span>
+        <div>
+          <div class="resource-title">Emergency Cheat Sheet</div>
+          <div class="resource-desc">Quick reference for codes and evacuation.</div>
+        </div>
+      </div>
+      <span class="arrow">›</span>
     </div>
   </div>
-
-  <!-- Additional sections (medical, lockdown) would follow this same pattern -->
-
-  <footer>
-    Maintained by: Safety Lead | Last Updated: 2025-06-15
-  </footer>
-
-  <script>
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-      document.querySelectorAll('.protocol').forEach(p => p.classList.remove('active'));
-      document.querySelector(`.tab.${tabId === 'fire' ? 'red' : tabId === 'medical' ? 'blue' : 'purple'}`).classList.add('active');
-      document.getElementById(tabId).classList.add('active');
-    }
-  </script>
 </body>
 </html>
