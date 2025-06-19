@@ -3,137 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Safety Station – Staff Resource Hub</title>
+  <title>SummitStone Safety Station</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f9fafb;
+      background: #f0f4f8;
       margin: 0;
-      padding: 0;
+      padding: 2rem;
+      color: #1f2937;
     }
-    header {
-      background-color: #3b82f6;
-      color: white;
-      padding: 1.5rem;
+    h1 {
       text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      color: #2563eb;
     }
-    .container {
-      max-width: 600px;
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      max-width: 1000px;
       margin: 2rem auto;
+    }
+    .card {
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      padding: 1rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      text-decoration: none;
+      color: #1f2937;
+      font-weight: bold;
+      transition: transform 0.2s ease, background 0.2s ease;
     }
-    .resource {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      border-bottom: 1px solid #e5e7eb;
-      cursor: pointer;
-    }
-    .resource:hover {
-      background-color: #f3f4f6;
-    }
-    .resource:last-child {
-      border-bottom: none;
-    }
-    .resource-icon-title {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .resource-icon {
-      font-size: 1.25rem;
-    }
-    .resource-title {
-      font-weight: 600;
-    }
-    .resource-desc {
-      font-size: 0.875rem;
-      color: #6b7280;
-    }
-    .arrow {
-      font-size: 1.25rem;
-      color: #9ca3af;
+    .card:hover {
+      transform: translateY(-5px);
+      background: #e0f2fe;
     }
   </style>
 </head>
 <body>
-  <header>
-    📲 QR Safety Station – Staff Resource Hub
-  </header>
-
-  <div class="container">
-    <div class="resource" onclick="location.href='safety-handbook.html';">
-      <div class="resource-icon-title">
-        <span class="resource-icon">📘</span>
-        <div>
-          <div class="resource-title">Safety Handbook</div>
-          <div class="resource-desc">Access our full policies and safety procedures.</div>
-        </div>
-      </div>
-      <span class="arrow">›</span>
-    </div>
-
-    <div class="resource" onclick="location.href='emergency-protocols.html';">
-      <div class="resource-icon-title">
-        <span class="resource-icon">🛑</span>
-        <div>
-          <div class="resource-title">Emergency Protocols</div>
-          <div class="resource-desc">Know what to do in fires, lockdowns, and medical emergencies.</div>
-        </div>
-      </div>
-      <span class="arrow">›</span>
-    </div>
-
-    <div class="resource" onclick="location.href='monthly-topic.html';">
-      <div class="resource-icon-title">
-        <span class="resource-icon">🗓️</span>
-        <div>
-          <div class="resource-title">Monthly Safety Topic</div>
-          <div class="resource-desc">Rotating focus to keep safety top of mind.</div>
-        </div>
-      </div>
-      <span class="arrow">›</span>
-    </div>
-
-    <div class="resource" onclick="location.href='submit-concern.html';">
-      <div class="resource-icon-title">
-        <span class="resource-icon">✍️</span>
-        <div>
-          <div class="resource-title">Submit a Safety Concern</div>
-          <div class="resource-desc">Report issues securely and anonymously.</div>
-        </div>
-      </div>
-      <span class="arrow">›</span>
-    </div>
-
-    <div class="resource" onclick="location.href='training-video.html';">
-      <div class="resource-icon-title">
-        <span class="resource-icon">🎥</span>
-        <div>
-          <div class="resource-title">Quick Training Video</div>
-          <div class="resource-desc">Watch short staff safety tutorials.</div>
-        </div>
-      </div>
-      <span class="arrow">›</span>
-    </div>
-
-    <div class="resource" onclick="location.href='cheat-sheet.html';">
-      <div class="resource-icon-title">
-        <span class="resource-icon">⚠️</span>
-        <div>
-          <div class="resource-title">Emergency Cheat Sheet</div>
-          <div class="resource-desc">Quick reference for codes and evacuation.</div>
-        </div>
-      </div>
-      <span class="arrow">›</span>
-    </div>
+  <h1>📌 SummitStone Safety Station</h1>
+  <div class="grid">
+    <a href="emergency-protocols.html" class="card">🛑 Emergency Protocols</a>
+    <a href="safety-handbook.html" class="card">📘 Safety Handbook</a>
+    <a href="monthly-topic.html" class="card">📆 Monthly Topic</a>
+    <a href="submit-concern.html" class="card">📝 Submit a Concern</a>
+    <a href="training-video.html" class="card">🎥 Training Video</a>
+    <a href="emergency-cheat-sheet.html" class="card">🧾 Emergency Cheat Sheet</a>
   </div>
 </body>
 </html>
+
